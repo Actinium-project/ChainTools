@@ -11,7 +11,7 @@
 *
 *    gcc -o chainlistener chainlistener.c -I/usr/local/include -L/usr/local/lib -lzmq -lczmq
 *
-*    Check for available ZMQ publishers with by typing "getzmqnotifications" in wallet console.
+*    Check for available ZMQ publishers by typing "getzmqnotifications" in wallet console.
 *
 *    Example output: 
 *
