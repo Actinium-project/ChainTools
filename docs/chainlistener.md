@@ -54,13 +54,13 @@ And to understand how cryptocurrency software formats their data we must look in
 
 ![btc_send_zmq_message](https://raw.githubusercontent.com/Actinium-project/ACM-Designs/master/random/btc_send_zmq_message.png)
 
-By looking at the parameters of the *SendMessage* function as well as from the comments we recognize that Bitcoin is sending a three-part or, in ZMQ-lingo, *multipart* messages. Every message begins with a *command* that is essentialy the *topic* a client subscribes to. The second part is the *payload* that can be a **transaction hash*, a **blockhash**, a **raw block** or a **raw transaction**. The third part of the message is the length indicator written in **little-endian** [format](https://en.wikipedia.org/wiki/Endianness). 
+By looking at the parameters of the *SendMessage* function as well as from the comments we recognize that Bitcoin is sending a three-part or, in ZMQ-lingo, *multipart* messages. Every message begins with a *command* that is essentialy the *topic* a client subscribes to. The second part is the *payload* that can be a **transaction hash*, a **blockhash**, a **raw block**, or a **raw transaction**. The third part of the message is the length indicator written in **little-endian** [format](https://en.wikipedia.org/wiki/Endianness). 
 
 The place where all those bytes get packed and pushed out via ZMQ is the internal **zmq_send_multipart** [function](https://github.com/bitcoin/bitcoin/blob/master/src/zmq/zmqpublishnotifier.cpp#L30).
 
 ![zmq_send_multipart](https://raw.githubusercontent.com/Actinium-project/ACM-Designs/master/random/zmq_send_multipart.png)
 
-It accepts a **variable range** of arguments (note the three **dots** at the end of argument list) and each of those gets converted into a proper ZMQ message that takes [data and size](https://github.com/bitcoin/bitcoin/blob/master/src/zmq/zmqpublishnotifier.cpp#L30) to initialize the next chunk. 
+It accepts a **variable range** of arguments (note the three **dots** at the end of the argument list) and each of those gets converted into a proper ZMQ message that takes [data and size](https://github.com/bitcoin/bitcoin/blob/master/src/zmq/zmqpublishnotifier.cpp#L30) to initialize the next chunk. 
 
 Ultimately the message gets pushed out via **zmq_msg_send** [function](https://github.com/bitcoin/bitcoin/blob/master/src/zmq/zmqpublishnotifier.cpp#L43). 
 
