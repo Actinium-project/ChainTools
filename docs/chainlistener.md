@@ -26,7 +26,7 @@ You will also need a C compiler toolchain for generating the binary we are about
 
 * ZMQ & CZMQ libraries and headers
 
-And finally, we will need ZMQ and [CZMQ](http://czmq.zeromq.org/czmq4-0:_start), the *high-level* C-binding to ZMQ. CZMQ makes working with ZMQ's sockets easier as it wraps the undelying code in shorter semantics. It also hides the differences between ZMQ versions which of course makes working with legacy code more pleasant. To install these libraries use the install tool of your choice like **apt** or **brew**, or download them directly from ZMQ's [home page](http://zeromq.org/intro:get-the-software).
+And finally, we will need ZMQ and [CZMQ](http://czmq.zeromq.org/czmq4-0:_start), the *high-level* C-binding to ZMQ. CZMQ makes working with ZMQ's sockets easier as it wraps the underlying code in shorter semantics. It also hides the differences between ZMQ versions which of course makes working with legacy code more pleasant. To install these libraries use the install tool of your choice like **apt** or **brew**, or download them directly from ZMQ's [home page](http://zeromq.org/intro:get-the-software).
 
 **macOS**
 
