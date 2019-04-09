@@ -68,7 +68,7 @@ One important part in this mechanism is the flag **ZMQ_SNDMORE** that indicates 
 
 Now the question is: How do we get these messages? Or better, how do we get them *programmatically*?
 
-We take C of course to write a client that subscribes to those *publishers* and reads incoming messages the same way they've been written. This is the reason why one should always *look into the* code that originally produced data to be able to consume it properly.
+We'll take C of course to write a client that subscribes to those *publishers* and reads incoming messages the same way they've been written. This is the reason why one should always *look into the* code that originally produced data to be able to consume it properly.
 
 ### Using ZMQ libraries to receive messages 
 
