@@ -76,7 +76,7 @@ Before we get them we have to connect to available publishers from our wallet or
 
 ![open_new_socket](https://raw.githubusercontent.com/Actinium-project/ACM-Designs/master/random/zmq_open_new_socket.png)
 
-As we are using the *publish-subscribe* [pattern](http://zguide.zeromq.org/page:all#Chapter-Advanced-Pub-Sub-Patterns) to receive messages our two parameters are **zmqserver** and **topic**. The *zmqserver* is just the URL of one the publishers we're interested in. 
+As we are using the *publish-subscribe* [pattern](http://zguide.zeromq.org/page:all#Chapter-Advanced-Pub-Sub-Patterns) to receive messages, our two parameters are **zmqserver** and **topic**. The *zmqserver* is just the URL of one the publishers we're interested in. 
 
 ```shell
 zmqpubrawblock=tcp://127.0.0.1:28332
@@ -126,7 +126,7 @@ The multipart message we just received contains data in certain formats and just
 
 * Topic name, a string
 * Payload, a hexadecimal value
-* Lenght indicator in little-endian format, a numeric value
+* Length indicator in little-endian format, a numeric value
 
 For the **first frame** we can use the *zmsg_popstr* function, this is the easy part.
 The **second frame** is a bit harder as is contains data of various length and quality. Therefore we first get it out of the multipart message as a *frame* via *zmsq_pop* function that returns an object of type *zframe_t*. This way we can later convert it into a human-readable format. Had we used *zmsg_popstr* we'd only see a part of the whole data structure. The **third frame** is a number that we convert into an *unsigned int* as we have no negative lengths in our case.
