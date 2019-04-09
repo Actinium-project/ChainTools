@@ -66,7 +66,7 @@ Ultimately the message gets pushed out via **zmq_msg_send** [function](https://g
 
 One important part in this mechanism is the flag **ZMQ_SNDMORE** that indicates the end of a **multipart message**. As long as there are *more* messages to be sent this flag will be set. After the last message has left it switches to **0** to inform the receiving party that there won't be any more parts belonging to this message. One can think of **multipart messages** as boxes containing separate entities, called *frames*, inside. A *frame* is a chunk of data that can be processed individually. Multipart messages can contain any number of frames. In Bitcoin's case we have three frames that represent different types of data.
 
-Now the question is: How do we get these messages? Or better, how do we *programmatically* get them?
+Now the question is: How do we get these messages? Or better, how do we get them *programmatically*?
 
 We take C of course to write a client that subscribes to those *publishers* and reads incoming messages the same way they've been written. This is the reason why one should always *look into the* code that originally produced data to be able to consume it properly.
 
