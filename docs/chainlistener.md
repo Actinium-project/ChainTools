@@ -151,7 +151,7 @@ At the end we print these messages in our console:
 
 Last but not least, [we free the memory](https://github.com/Actinium-project/ChainTools/blob/master/bin/chainlistener.c#L59) we've been using so far. As already stated in the docs ZMQ expects the receiving side to take care of memory management.
 
-An this is how our tool would present us those real-time data:
+An this is how our tool would present us these data in real-time:
 
 ![chainlistener_demo](https://raw.githubusercontent.com/Actinium-project/ACM-Designs/master/random/chainlistener_demo.png)
 
