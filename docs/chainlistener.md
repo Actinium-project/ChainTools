@@ -64,7 +64,7 @@ It accepts a **variable range** of arguments (note the three **dots** at the end
 
 Ultimately the message gets pushed out via **zmq_msg_send** [function](https://github.com/bitcoin/bitcoin/blob/master/src/zmq/zmqpublishnotifier.cpp#L43). 
 
-One important part in this mechanism is the parameter **ZMQ_SNDMORE** that indicates the end of a **multipart message**. As long as there are *more* messages to be sent this value will be **1**. After the last message has left it switches to **0** to inform the receiving party that there won't be any more parts belonging to this message. One can think of **multipart messages** as boxes containing separate entities, called *frames*, inside. A *frame* is a chunk of data that can be processed individually. Multipart messages can contain any number of frames. In Bitcoin's case we have three frames that represent different types of data.
+One important part in this mechanism is the flag **ZMQ_SNDMORE** that indicates the end of a **multipart message**. As long as there are *more* messages to be sent this flag will be set. After the last message has left it switches to **0** to inform the receiving party that there won't be any more parts belonging to this message. One can think of **multipart messages** as boxes containing separate entities, called *frames*, inside. A *frame* is a chunk of data that can be processed individually. Multipart messages can contain any number of frames. In Bitcoin's case we have three frames that represent different types of data.
 
 Now the question is: How do we get these messages? Or better, how do we *programmatically* get them?
 
